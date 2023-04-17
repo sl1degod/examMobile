@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/teal_200</item>
+        <item name="android:textColorHint">@color/teal_200</item>
+        <item name="boxStrokeWidth">1dp</item>
+    </style>
+
+    <style name="TextInputEditText" parent="ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox.Dense">
+        <item name="android:textColor">@color/teal_200</item>
+    </style>
+</resources>

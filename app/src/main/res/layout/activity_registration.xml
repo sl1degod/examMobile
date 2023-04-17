@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registration"
+    tools:context=".RegistrationActivity">
+
+    <ImageView
+        android:layout_width="143dp"
+        android:layout_height="144dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ico_app_white"/>
+
+    <RelativeLayout
+        android:id="@+id/reg_window"
+        android:layout_width="301dp"
+        android:layout_height="216dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/reg_background">
+
+        <TextView
+            android:id="@+id/titleReg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Регистрация"
+            android:textColor="#FF074D8E"
+            android:textSize="24sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameTIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleReg"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:startIconDrawable="@drawable/icon_account_box"
+            app:startIconTint="#FF074D8E">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameTIED"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Имя"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailTIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameTIL"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            app:startIconDrawable="@drawable/icon_account_box"
+            app:startIconTint="#FF074D8E">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailTIED"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Почта"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reg_window"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="55dp"
+        android:background="@drawable/button_bg"
+        android:text="Зарегистрироваться"
+        android:textAllCaps="false"
+        android:textColor="#FF074D8E"
+        android:textSize="18sp" />
+    
+    <TextView
+        android:id="@+id/go_to_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Авторизация"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>
