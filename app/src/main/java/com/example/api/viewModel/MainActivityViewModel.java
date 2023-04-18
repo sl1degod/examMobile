@@ -16,21 +16,62 @@ import retrofit2.Response;
 
 public class MainActivityViewModel extends ViewModel {
     private MutableLiveData<List<User>> usersData = new MutableLiveData<>();
-
     private MutableLiveData<List<Post>> postsData = new MutableLiveData<>();
-
+    private final MutableLiveData<Post> createPostData = new MutableLiveData<>();
 
     public MutableLiveData<List<User>> getUsersData() {
         return usersData;
     }
-
     public MutableLiveData<List<Post>> getPostsData() {
         return postsData;
     }
+    public MutableLiveData<Post> getCreatePostData() {
+        return createPostData;
+    }
 
-    public void getUsers() {
+    public void createPost(Post post) {
         RetrofitService retrofitService = RetrofitInstance.getRetrofitInstance().create(RetrofitService.class);
-        Call<List<User>> call = retrofitService.getUsers();
+        Call<Post> call = retrofitService.createPost(post);
+        call.enqueue(new Callback<Post>() {
+            @Override
+            public void onResponse(Call<Post> call, Response<Post> response) {
+                if (response.isSuccessful()) {
+                    createPostData.postValue(response.body());
+                } else {
+                    createPostData.postValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Post> call, Throwable t) {
+                createPostData.postValue(null);
+            }
+        });
+    }
+
+    public void getUsers(String user_login) {
+        RetrofitService retrofitService = RetrofitInstance.getRetrofitInstance().create(RetrofitService.class);
+        Call<List<User>> call = retrofitService.getUsers(user_login);
+        call.enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                if (response.isSuccessful()) {
+                    usersData.postValue(response.body());
+                } else {
+                    usersData.postValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                usersData.postValue(null);
+            }
+        });
+    }
+
+    public void getUsersList() {
+        RetrofitService retrofitService = RetrofitInstance.getRetrofitInstance().create(RetrofitService.class);
+        Call<List<User>> call = retrofitService.getUsersList();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
@@ -67,5 +108,5 @@ public class MainActivityViewModel extends ViewModel {
             }
         });
     }
-    
+
 }

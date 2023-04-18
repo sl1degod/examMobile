@@ -19,10 +19,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api.R;
 import com.example.api.adapter.UserAdapter;
+import com.example.api.models.User;
 import com.example.api.viewModel.MainActivityViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class UsersFragment extends Fragment {
+
+
 
     private UserAdapter userAdapter;
     private RecyclerView recyclerView;
@@ -63,7 +69,7 @@ public class UsersFragment extends Fragment {
                 userAdapter.notifyDataSetChanged();
             }
         });
-        viewModel.getUsers();
+        viewModel.getUsersList();
     }
 
 }

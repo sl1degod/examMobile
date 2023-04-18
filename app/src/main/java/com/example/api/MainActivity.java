@@ -16,8 +16,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.api.adapter.UserAdapter;
+import com.example.api.databinding.ActivityAuthorizationBinding;
 import com.example.api.databinding.ActivityMainBinding;
-import com.example.api.databinding.ActivityRegistrationBinding;
 import com.example.api.fragments.PostsFragment;
 import com.example.api.fragments.UsersFragment;
 import com.example.api.viewModel.MainActivityViewModel;
@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int NUM_PAGE = 2;
     private ViewPager2 viewPager2;
     private TabLayout tabLayout;
+
+    public static String user_id;
+
     private FragmentStateAdapter pagerAdapter;
 
     @Override
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager);
+        user_id = getIntent().getStringExtra("user_id");
 
         tabLayout.addTab(tabLayout.newTab().setText("Пользователи"));
         tabLayout.addTab(tabLayout.newTab().setText("Посты"));
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
+
 
     }
 

@@ -15,19 +15,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AuthorizationActivityViewModel extends ViewModel {
-    private final MutableLiveData<User> loadUserData = new MutableLiveData<>();
+    private final MutableLiveData<List<User>> loadUserData = new MutableLiveData<>();
 
-    public MutableLiveData<User> getLoadUserData() {
+    public MutableLiveData<List<User>> getLoadUserData() {
         return loadUserData;
     }
 
 
     public void getUsers(String user_login) {
         RetrofitService retrofitService = RetrofitInstance.getRetrofitInstance().create(RetrofitService.class);
-        Call<User> call = retrofitService.getUserData(user_login);
-        call.enqueue(new Callback<User>() {
+        Call<List<User>> call = retrofitService.getUsers(user_login);
+        call.enqueue(new Callback<List<User>>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if (response.isSuccessful()) {
                     loadUserData.postValue(response.body());
                 } else {
@@ -36,7 +36,7 @@ public class AuthorizationActivityViewModel extends ViewModel {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<List<User>> call, Throwable t) {
                 loadUserData.postValue(null);
             }
         });

@@ -13,9 +13,9 @@ public class ShapeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shape);
 
-        new Handler().postDelayed(() -> {
-            startActivity(new Intent(this, RegistrationActivity.class));
-            finish();
-        }, 3000);
+//        new Handler().postDelayed(() -> {
+//            startActivity(new Intent(this, RegistrationActivity.class));
+//            finish();
+//        }, 3000);
     }
 }

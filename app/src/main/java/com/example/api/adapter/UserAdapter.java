@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.api.EditUserActivity;
 import com.example.api.models.User;
 import com.example.api.R;
 

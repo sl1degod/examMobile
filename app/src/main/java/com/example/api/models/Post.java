@@ -1,11 +1,29 @@
 package com.example.api.models;
 
 public class Post {
-    String title, body;
+    String id, user_id, title, body;
 
-    public Post(String title, String body) {
+    public Post(String id, String user_id, String title, String body) {
+        this.id = id;
+        this.user_id = user_id;
         this.title = title;
         this.body = body;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public String getTitle() {

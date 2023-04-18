@@ -2,11 +2,18 @@
 <resources>
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/teal_200</item>
+        <item name="boxStrokeErrorColor">@color/error</item>
         <item name="android:textColorHint">@color/teal_200</item>
         <item name="boxStrokeWidth">1dp</item>
     </style>
 
     <style name="TextInputEditText" parent="ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox.Dense">
         <item name="android:textColor">@color/teal_200</item>
+    </style>
+
+
+    <style name="style_error_appearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/error</item>
+        <item name="android:textSize">11sp</item>
     </style>
 </resources>
